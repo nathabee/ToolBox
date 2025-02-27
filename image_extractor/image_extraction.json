@@ -1,7 +1,7 @@
 {
     "background": {
       "input": "/home/nathalie/Downloads/tmp/styling/blauflamingo.jpg",
-      "reference": "/home/nathalie/Downloads/tmp/styling/backgroundw.jpg",
+      "reference": "/home/nathalie/Downloads/tmp/styling/background.jpg",
       "tolerance": 30
     },
     "resize": {
