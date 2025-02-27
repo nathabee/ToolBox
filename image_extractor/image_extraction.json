@@ -1,0 +1,17 @@
+{
+    "background": {
+      "input": "/home/nathalie/Downloads/tmp/styling/blauflamingo.jpg",
+      "reference": "/home/nathalie/Downloads/tmp/styling/backgroundw.jpg",
+      "tolerance": 30
+    },
+    "resize": {
+      "size": "M"
+    },
+    "styling": {
+      "brightness": 200,
+      "threshold1": 50,
+      "threshold2": 150,
+      "color": "0,255,0"
+    }
+  }
+  
