@@ -2,6 +2,11 @@
 
 This repository contains various image processing tools categorized by their functionality. Each tool is designed to handle different tasks related to image creation, extraction, loading, and manipulation.
 
+
+<!-- TOC --> 
+<!-- TOC END -->
+
+
 ## Categories
 
 ### 1. Image Creator
@@ -57,4 +62,7 @@ This project is open-source and free to use under the MIT License.
 ## Contributions
 Feel free to submit pull requests or report issues for improvements!
  
+
+
+![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _40 hours_ (Auto-generated)
 
