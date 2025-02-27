@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Ignore .env files (if you store sensitive information there)
+*.env
+
+
+# Virtual environment
+env/
+
+
+#debug or old code
+**/to_ignore/**
+
+ 
+ 
+ 
+
+# IDE specific files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+ 
+
+ 
