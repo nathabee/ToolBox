@@ -12,15 +12,9 @@ fi
 # Extract total hours worked from WORKLOG.md
 total_hours=0
 
-# Use grep to find all "Hours Worked" occurrences and sum them correctly
-grep -oP '\*\*Hours\ Worked\*\*:\s*\K\d+' "$WORKLOG_FILE" | while read -r hours; do
-    total_hours=$((total_hours + hours))
-done
-
-# New fix: Allow for extra spaces before the number
-grep -oP '\*\*Hours\ Worked\*\*:\s*\K\d+' "$WORKLOG_FILE" | while read -r hours; do
-    total_hours=$((total_hours + hours))
-done
+# Use grep and awk to find all "Hours Worked" occurrences and sum them correctly
+total_hours=$(grep -oP '(?<=\*\*Hours Worked\*\*: )\d+' "$WORKLOG_FILE" | awk '{s+=$1} END {print s}')
+total_hours=$((total_hours + $(grep -oP '(?<=- \*\*Hours Worked\*\*: )\d+' "$WORKLOG_FILE" | awk '{s+=$1} END {print s}')))
 
 echo "Total hours calculated: ${total_hours}"
 
@@ -40,8 +34,8 @@ with open(file_path, 'r') as file:
 
 # Update the line containing Total Hours Worked
 content = re.sub(
-    r"(!\[⏱️\]\(.*?\) \*\*Total Hours Worked\*\*: _)\s*([0-9]+ hours)\s*(_ \(Auto-generated\))",
-    r"\g<1>{} hours\g<3>".format(total_hours),
+    r"(!\[⏱️\]\(.*?\) \*\*Total Hours Worked\*\*: _)\d+ hours(_ \(Auto-generated\))",
+    r"\g<1>{} hours\g<2>".format(total_hours),
     content
 )
 
