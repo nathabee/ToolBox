@@ -1,0 +1,13 @@
+opencv-python
+numpy
+pillow
+argparse
+os
+json
+csv
+shutil
+pandas
+mysql-connector-python
+datetime
+re
+sys

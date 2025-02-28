@@ -33,7 +33,7 @@ ssh-keygen -t ed25519 -C "your-email@example.com"
    cat ~/.ssh/id_ed25519.pub
    ```
 2. **Go to GitHub**:
-   - Open **[GitHub SSH Settings](https://github.com/settings/keys)**
+   - Open [**GitHub SSH Settings**](https://github.com/settings/keys)
    - Click **"New SSH Key"**
    - Set a title (e.g., "My Laptop")
    - Paste the copied key into the **Key** field
@@ -57,7 +57,7 @@ If you initially added your remote using HTTPS, update it to SSH:
 ```sh
 git remote set-url origin git@github.com:yourusername/YourRepository.git
 ```
- 
+
 
 ## **4. Adding Code to GitHub**
 In your development environment, navigate to the root directory of your new GitHub repository, copy the code, and initialize Git:
@@ -99,15 +99,52 @@ chmod +x scripts/setup-hooks.sh
 - `scripts/setup-hooks.sh`: Installs the hooks into `.git/hooks`.
 - `scripts/update-hours.sh`: Updates total hours worked in `README.md` and `WORKLOG.md`.
 
-## **4. Optional: Worklog Tracking**
-To track development hours, maintain a `WORKLOG.md` file in `documentation/`. The Git hook will automatically update the total time spent on the project before each commit.
-```md
-![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _40 hours_ (Auto-generated)
+## **4. Setting Up and Running Hooks**
+To properly ensure that `README.md` updates are also committed when changes occur, follow these steps:
+1. **Ensure Hooks Are Installed:**
+   ```sh
+   ./scripts/setup-hooks.sh
+   ```
+2. **Modify `pre-commit` to Auto-Stage `README.md`:**
+   In `hooks/pre-commit`, make sure the script stages the updated `README.md` by adding this line:
+   ```sh
+   git add README.md
+   ```
+3. **Verify Hook Execution:** Run a test commit:
+   ```sh
+   git commit -m "Test commit with hook validation"
+   ```
+   If `README.md` is updated, it should be staged automatically before the commit.
+
+## **5. Setting Up a Python Virtual Environment**
+
+To ensure dependencies are managed correctly, set up a **Python virtual environment**:
+
+### **Step 1: Create and Activate a Virtual Environment**
+```sh
+python3 -m venv venv
+source venv/bin/activate  # For Linux/macOS
+venv\Scripts\activate  # For Windows
 ```
 
----
+### **Step 2: Install Required Dependencies**
+Before installing dependencies, ensure that your `pip` is up to date:
+```sh
+pip install --upgrade pip
+```
 
-## **5. Contribution & License**
+Then, install dependencies from the `requirements.txt` file:Then, install dependencies inside the virtual environment:
+```sh
+pip install -r requirements.txt
+```
+
+### **Step 3: Deactivate the Virtual Environment (Optional)**
+Once done working in the environment, deactivate it:
+```sh
+deactivate
+```
+
+## **6. Contribution & License**
 - This project is open-source and free to use under the MIT License.
 - Contributions are welcome! Feel free to submit pull requests or report issues.
  

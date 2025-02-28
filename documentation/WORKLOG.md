@@ -7,7 +7,7 @@
   - [Detailed Work Log](#detailed-work-log)
   - [Week 1 (Dates: from November 18 to November 22, 2024)](#week-1-dates-from-november-18-to-november-22-2024)
     - [Februar 27, 2025](#februar-27-2025)
-    - [November 19, 2024](#november-19-2024)
+    - [Februar 28, 2025](#februar-28-2025)
   - [Tips for Using This Log](#tips-for-using-this-log)
 <!-- TOC END -->
 
@@ -36,11 +36,12 @@ This document tracks the number of hours worked each day and provides a brief de
 
 
 
-### November 19, 2024
-- **Hours Worked**:  0 hours
+### Februar 28, 2025
+- **Hours Worked**:  2 hours
 - **Tasks**:
-  - .....
-- **Theme**:  .
+  - hook problem by commit
+  - add python virtual environment  
+- **Theme**:  Project Initialization 
 - **Progress**: ...
 
 
