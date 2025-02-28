@@ -12,13 +12,15 @@ fi
 # Extract total hours worked from WORKLOG.md
 total_hours=0
 
-# Read through the worklog file to add up all the "Hours Worked" lines
-while IFS= read -r line; do
-    if [[ "$line" =~ \*\*Hours\ Worked\*\*:\ ([0-9]+)\ hours ]]; then
-        hours="${BASH_REMATCH[1]}"
-        total_hours=$((total_hours + hours))
-    fi
-done < "$WORKLOG_FILE"
+# Use grep to find all "Hours Worked" occurrences and sum them correctly
+grep -oP '\*\*Hours\ Worked\*\*:\s*\K\d+' "$WORKLOG_FILE" | while read -r hours; do
+    total_hours=$((total_hours + hours))
+done
+
+# New fix: Allow for extra spaces before the number
+grep -oP '\*\*Hours\ Worked\*\*:\s*\K\d+' "$WORKLOG_FILE" | while read -r hours; do
+    total_hours=$((total_hours + hours))
+done
 
 echo "Total hours calculated: ${total_hours}"
 
@@ -38,7 +40,7 @@ with open(file_path, 'r') as file:
 
 # Update the line containing Total Hours Worked
 content = re.sub(
-    r"(!\[⏱️\]\(.*?\) \*\*Total Hours Worked\*\*: _)([0-9]+ hours)(_ \(Auto-generated\))",
+    r"(!\[⏱️\]\(.*?\) \*\*Total Hours Worked\*\*: _)\s*([0-9]+ hours)\s*(_ \(Auto-generated\))",
     r"\g<1>{} hours\g<3>".format(total_hours),
     content
 )
