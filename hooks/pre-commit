@@ -28,7 +28,8 @@ fi
 # Update the work log hours before committing
 ./scripts/update-hours.sh
 
-# Ensure WORKLOG.md is staged for commit
+# Ensure both WORKLOG.md and README.md are staged **AFTER** modification
 if git diff --name-only | grep -q 'documentation/WORKLOG.md'; then
   git add documentation/WORKLOG.md
+  git add README.md
 fi
