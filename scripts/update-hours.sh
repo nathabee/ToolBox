@@ -1,8 +1,8 @@
 #!/bin/bash
 
 WORKLOG_FILE="documentation/WORKLOG.md"
-README_FILE="README.md"   
- 
+README_FILE="README.md"
+
 # Check if the WORKLOG.md file exists, if not, exit with an error
 if [ ! -f "$WORKLOG_FILE" ]; then
   echo "Error: WORKLOG.md file not found!"
@@ -12,10 +12,8 @@ fi
 # Extract total hours worked from WORKLOG.md
 total_hours=0
 
-
 # Read through the worklog file to add up all the "Hours Worked" lines
-while IFS= read -r line
-do
+while IFS= read -r line; do
     if [[ "$line" =~ \*\*Hours\ Worked\*\*:\ ([0-9]+)\ hours ]]; then
         hours="${BASH_REMATCH[1]}"
         total_hours=$((total_hours + hours))
@@ -52,10 +50,8 @@ print(f"Updated {file_path} successfully.")
 EOF
 }
 
-# Update WORKLOG.md
+# Ensure both WORKLOG.md and README.md are updated
 update_files "$WORKLOG_FILE" "$total_hours"
-
-# Update README.md if it exists
 if [ -f "$README_FILE" ]; then
     update_files "$README_FILE" "$total_hours"
 else
