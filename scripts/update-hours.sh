@@ -12,9 +12,8 @@ fi
 # Extract total hours worked from WORKLOG.md
 total_hours=0
 
-# Use grep and awk to find all "Hours Worked" occurrences and sum them correctly
-total_hours=$(grep -oP '(?<=\*\*Hours Worked\*\*: )\d+' "$WORKLOG_FILE" | awk '{s+=$1} END {print s}')
-total_hours=$((total_hours + $(grep -oP '(?<=- \*\*Hours Worked\*\*: )\d+' "$WORKLOG_FILE" | awk '{s+=$1} END {print s}')))
+# Use grep to find "Hours Worked" occurrences, but exclude the auto-generated line
+total_hours=$(grep -oP '(?<=- \*\*Hours Worked\*\*: )\d+' "$WORKLOG_FILE" | awk '{s+=$1} END {print s}')
 
 echo "Total hours calculated: ${total_hours}"
 
@@ -32,7 +31,7 @@ total_hours = "$total_hours"
 with open(file_path, 'r') as file:
     content = file.read()
 
-# Update the line containing Total Hours Worked
+# Update only the auto-generated "Total Hours Worked" line, not individual logs
 content = re.sub(
     r"(!\[⏱️\]\(.*?\) \*\*Total Hours Worked\*\*: _)\d+ hours(_ \(Auto-generated\))",
     r"\g<1>{} hours\g<2>".format(total_hours),

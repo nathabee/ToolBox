@@ -1,6 +1,6 @@
 # Project Work Log
 
-![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _12 hours_ (Auto-generated)
+![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _6 hours_ (Auto-generated)
 ---
 <!-- TOC -->
 - [Project Work Log](#project-work-log)
@@ -42,7 +42,7 @@ This document tracks the number of hours worked each day and provides a brief de
   - hook problem by commit
   - add python virtual environment  
 - **Theme**:  Project Initialization 
-- **Progress**: ...
+- **Progress**: 
 
 
  

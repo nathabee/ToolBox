@@ -74,5 +74,5 @@ Feel free to submit pull requests or report issues for improvements!
  
 
 
-![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _0 hours_ (Auto-generated)
+![⏱️](https://img.icons8.com/emoji/48/stopwatch-emoji.png) **Total Hours Worked**: _12 hours_ (Auto-generated)
 
